@@ -10,6 +10,10 @@ const eventHandler = require('./auth/events.js')
 
 $(() => {
   // your JS code goes here
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('.pw').hide()
   $('#sign-up').on('submit', eventHandler.onSignUp)
   $('#sign-in').on('submit', eventHandler.onSignIn)
+  $('#sign-out').on('submit', eventHandler.onSignOut)
 })

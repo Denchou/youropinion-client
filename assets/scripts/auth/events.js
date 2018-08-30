@@ -18,7 +18,16 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
 }
 
+const onSignOut = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.signOut(data)
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutFailure)
+}
+
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onSignOut
 }

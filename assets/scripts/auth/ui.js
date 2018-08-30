@@ -33,9 +33,25 @@ const onSignInFailure = function () {
   $('#message').append('<li>Check your Username and Password.</li>')
   $('#message').append('<li>Ensure you are connected to the internet.</li>')
 }
+
+const onSignOutSuccess = function () {
+  $('#message').html('Thank you for playing! Goodbye!')
+  $('.sign').show()
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('.collapse').collapse('hide')
+  $('.pw').hide()
+}
+const onSignOutFailure = function () {
+  $('#message').html('Something went wrong, please check your internet connection.')
+  $('#sign-in').show()
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
-  onSignInFailure
+  onSignInFailure,
+  onSignOutSuccess,
+  onSignOutFailure
 }

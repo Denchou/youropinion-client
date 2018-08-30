@@ -47,11 +47,23 @@ const onSignOutFailure = function () {
   $('#sign-in').show()
 }
 
+const onChangePasswordSuccess = function () {
+  $('#change-password').trigger('reset')
+  $('.collapse').collapse('hide')
+  $('#message').html('Your password is now updated!')
+}
+const onChangePasswordFailure = function () {
+  $('#change-password').trigger('reset')
+  $('#message').html('We were unable to update your password. Please ensure your old password is correct.')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onChangePasswordSuccess,
+  onChangePasswordFailure
 }

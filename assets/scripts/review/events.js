@@ -9,6 +9,13 @@ const onAllReviews = function (event) {
     .catch(ui.onAllReviewsFailure)
 }
 
+const onCloseReviews = function (event) {
+  event.preventDefault()
+  console.log('close review event is ', event)
+  $('#review').html('')
+}
+
 module.exports = {
-  onAllReviews
+  onAllReviews,
+  onCloseReviews
 }

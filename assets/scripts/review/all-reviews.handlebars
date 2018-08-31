@@ -1,0 +1,13 @@
+{{#each reviews as |review|}}
+
+  <div>
+    <section data-id="{{review.id}}">
+    <h1> <small>Topic: {{review.topic}}</small></h1>
+    <ul>
+      <li>{{review.article}}</li>
+      <li>Rating Star: {{review.star}}</li>
+    </ul>
+  </section>
+  </div>
+
+{{/each}}

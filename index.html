@@ -6,6 +6,7 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -28,7 +29,40 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <!-- Start of Review Form -->
+
+            <div class="form-area">
+                <form role="form">
+                <br style="clear:both">
+                            <h3>Submit a Review</h3>
+            				<div class="form-group">
+        						<input type="text" class="form-control" id="topic" name="topic" placeholder="Topic" required>
+        					</div>
+                  <div class="stars">
+  <form action="">
+    <input class="star star-5" id="star-5" type="radio" name="star"/>
+    <label class="star star-5" for="star-5"></label>
+    <input class="star star-4" id="star-4" type="radio" name="star"/>
+    <label class="star star-4" for="star-4"></label>
+    <input class="star star-3" id="star-3" type="radio" name="star"/>
+    <label class="star star-3" for="star-3"></label>
+    <input class="star star-2" id="star-2" type="radio" name="star"/>
+    <label class="star star-2" for="star-2"></label>
+    <input class="star star-1" id="star-1" type="radio" name="star"/>
+    <label class="star star-1" for="star-1"></label>
+  </form>
+</div>
+
+                            <div class="form-group">
+                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="280" rows="7"></textarea>
+                                <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+                            </div>
+
+                <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+                </form>
+            </div>
+
+        <!-- End of Review Form -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

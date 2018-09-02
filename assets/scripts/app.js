@@ -10,7 +10,23 @@ const reviewHandler = require('./review/events.js')
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  // listener to limit the length of articles to 280 characters
+  $('#characterLeft').text('280 characters left')
+  $('#message').keydown(function () {
+    const max = 280
+    const len = $(this).val().length
+    if (len >= max) {
+      $('#characterLeft').text('You have reached the limit')
+      $('#characterLeft').addClass('red')
+      $('#btnSubmit').addClass('disabled')
+    } else {
+      const ch = max - len
+      $('#characterLeft').text(ch + ' characters left')
+      $('#btnSubmit').removeClass('disabled')
+      $('#characterLeft').removeClass('red')
+    }
+  })
+  // listener for sign up, sign in and review buttons
   $('#sign-out').hide()
   $('#change-password').hide()
   $('.pw').hide()

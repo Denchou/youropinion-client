@@ -19,5 +19,5 @@ $(() => {
   $('#sign-out').on('submit', authHandler.onSignOut)
   $('#change-password').on('submit', authHandler.onChangePassword)
   $('#all-reviews').on('submit', reviewHandler.onAllReviews)
-  $('#review').on('click', '.close-but', reviewHandler.onCloseReviews)
+  $('#review').on('click', '.close', reviewHandler.onCloseReviews)
 })

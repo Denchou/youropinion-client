@@ -8,7 +8,25 @@ const allReviews = function () {
     method: 'GET'
   })
 }
-
+// handles api call to submit review from a user
+const submitReview = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/reviews',
+    method: 'POST',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data: {
+      'review': {
+        'topic': data.topic,
+        'article': data.review,
+        'user_id': store.user.id,
+        'star': data.star
+      }
+    }
+  })
+}
 module.exports = {
-  allReviews
+  allReviews,
+  submitReview
 }

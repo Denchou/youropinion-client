@@ -35,6 +35,7 @@ $(() => {
   $('#sign-out').hide()
   $('#change-password').hide()
   $('.pw').hide()
+  $('#submitModal').hide()
   $('#sign-up').on('submit', authHandler.onSignUp)
   $('#sign-in').on('submit', authHandler.onSignIn)
   $('#sign-out').on('submit', authHandler.onSignOut)

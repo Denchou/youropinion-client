@@ -24,6 +24,7 @@ const onSignInSuccess = function (response) {
   $('#sign-out').show()
   $('#change-password').show()
   $('.pw').show()
+  $('#submitModal').show()
   $('.landpage').collapse('hide')
   store.user = response.user
 }
@@ -57,6 +58,14 @@ const onChangePasswordFailure = function () {
   $('#message').html('We were unable to update your password. Please ensure your old password is correct.')
 }
 
+const onSubmitReviewSuccess = function (response) {
+  console.log('SUCCESS! Review ID is ', response.id)
+}
+
+const onSubmitReviewFailure = function (response) {
+  console.log('FAILURE! Review data is ', response)
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -65,5 +74,7 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onChangePasswordSuccess,
-  onChangePasswordFailure
+  onChangePasswordFailure,
+  onSubmitReviewSuccess,
+  onSubmitReviewFailure
 }

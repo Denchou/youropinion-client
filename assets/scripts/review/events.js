@@ -17,12 +17,13 @@ const onCloseReviews = function (event) {
 
 const onSubmitReview = function (event) {
   event.preventDefault()
-  console.log(event.target.textarea, ' text area!!')
-  console.log(event, 'is event')
-  console.log('review input is ', $('#reviewInput').val())
+
   const data = getFormFields(event.target)
   data.review = $('#reviewInput').val()
-  console.log(data, ' is data')
+
+  api.submitReview(data)
+    .then(ui.onSubmitReviewSuccess)
+    .catch(ui.onSubmitReviewFailure)
 }
 
 module.exports = {

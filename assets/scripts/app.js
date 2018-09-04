@@ -12,7 +12,7 @@ const reviewHandler = require('./review/events.js')
 $(() => {
   // listener to limit the length of articles to 280 characters
   $('#characterLeft').text('280 characters left')
-  $('#message').keydown(function () {
+  $('#reviewInput').keydown(function () {
     const max = 280
     const len = $(this).val().length
     if (len >= max) {
@@ -26,6 +26,11 @@ $(() => {
       $('#characterLeft').removeClass('red')
     }
   })
+
+  // $('#reviewModal').on('hidden.bs.modal', function (e) {
+  //   $('#topic').html('')
+  // })
+
   // listener for sign up, sign in and review buttons
   $('#sign-out').hide()
   $('#change-password').hide()
@@ -36,4 +41,5 @@ $(() => {
   $('#change-password').on('submit', authHandler.onChangePassword)
   $('#all-reviews').on('submit', reviewHandler.onAllReviews)
   $('#review').on('click', '.close', reviewHandler.onCloseReviews)
+  $('#reviewForm').on('submit', reviewHandler.onSubmitReview)
 })

@@ -13,16 +13,16 @@
     </head>
     <body>
       <h1>Well, that's just like, your opinion, man</h1>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">
   Submit a review
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Submit review</h5>
+        <h5 class="modal-title" id="reviewModalLabel">Submit review</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -31,41 +31,35 @@
         <!-- Start of Review Form -->
 
             <div class="form-area">
-                <form role="form">
+                <form id="reviewForm" role="form">
                 <br style="clear:both">
-                            <h3>Submit a Review</h3>
+                            <h3>What's your opinion?</h3>
             				<div class="form-group">
-        						<input type="text" class="form-control" id="topic" name="topic" placeholder="Topic" required>
+        						<input type="text" class="form-control" id="topic" name="topic" placeholder="Topic: Please use only one word, no numbers!" input pattern="^[a-zA-Z]*" required>
         					</div>
-                  <div class="stars">
-                    <form action="">
-                      <input class="star star-5" id="star-5" type="radio" name="star"/>
+                  <div class="stars" required>
+                      <input class="star star-5" id="star-5" type="radio" value=5 name="star"/>
                       <label class="star star-5" for="star-5"></label>
-                      <input class="star star-4" id="star-4" type="radio" name="star"/>
+                      <input class="star star-4" id="star-4" type="radio" value=4 name="star"/>
                       <label class="star star-4" for="star-4"></label>
-                      <input class="star star-3" id="star-3" type="radio" name="star"/>
+                      <input class="star star-3" id="star-3" type="radio" value=3 name="star"/>
                       <label class="star star-3" for="star-3"></label>
-                      <input class="star star-2" id="star-2" type="radio" name="star"/>
+                      <input class="star star-2" id="star-2" type="radio" value=2 name="star"/>
                       <label class="star star-2" for="star-2"></label>
-                      <input class="star star-1" id="star-1" type="radio" name="star"/>
+                      <input class="star star-1" id="star-1" type="radio" value=1 name="star" checked="checked"/>
                       <label class="star star-1" for="star-1"></label>
-                    </form>
                   </div>
 
                             <div class="form-group">
-                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="280" rows="7"></textarea>
+                            <textarea class="form-control" type="textarea" id="reviewInput" placeholder="Your Review" maxlength="280" rows="7" required></textarea>
                                 <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                             </div>
 
-                <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+                <button type="reset submit" id="submitForm" name="submit" data-target ="#reviewInput" class="btn btn-primary pull-right">Submit Review</button>
                 </form>
             </div>
 
         <!-- End of Review Form -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

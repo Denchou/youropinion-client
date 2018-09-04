@@ -3,7 +3,7 @@ const store = require('../store')
 
 const onSignUpSuccess = function () {
   $('#sign-up').trigger('reset')
-  $('#message').html('Congratulations! Your account has been successfully created. Please sign in to play.')
+  $('#message').html('Congratulations! Your account has been successfully created. Please sign in to opiniate on things!')
   $('.collapse').collapse('hide')
   // $('#sign-up').hide()
   // $('#sign-in').hide()
@@ -19,13 +19,14 @@ const onSignUpFailure = function () {
 
 const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
-  $('#message').html('WELCOME! Click on Start New Game or Check Game Stats!')
+  $('#message').html('WELCOME! You can now submit a review and edit or delete your reviews!')
   $('.sign').hide()
   $('#sign-out').show()
   $('#change-password').show()
   $('.pw').show()
   $('#submitModal').show()
   $('.landpage').collapse('hide')
+  $('#myReviews').show()
   store.user = response.user
 }
 const onSignInFailure = function () {
@@ -43,6 +44,7 @@ const onSignOutSuccess = function () {
   $('.collapse').collapse('hide')
   $('.pw').hide()
   $('#submitModal').hide()
+  $('#myReviews').hide()
 }
 const onSignOutFailure = function () {
   $('#message').html('Something went wrong, please check your internet connection.')

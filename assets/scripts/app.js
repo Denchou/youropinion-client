@@ -36,6 +36,7 @@ $(() => {
   $('#change-password').hide()
   $('.pw').hide()
   $('#submitModal').hide()
+  $('#myReviews').hide()
   $('#sign-up').on('submit', authHandler.onSignUp)
   $('#sign-in').on('submit', authHandler.onSignIn)
   $('#sign-out').on('submit', authHandler.onSignOut)
@@ -43,4 +44,5 @@ $(() => {
   $('#all-reviews').on('submit', reviewHandler.onAllReviews)
   $('#review').on('click', '.close', reviewHandler.onCloseReviews)
   $('#reviewForm').on('submit', reviewHandler.onSubmitReview)
+  $('#myReviews').on('click', reviewHandler.onMyReviews)
 })

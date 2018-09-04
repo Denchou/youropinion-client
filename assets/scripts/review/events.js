@@ -1,20 +1,20 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
-
+// handler for reading all reviews submitted by all users
 const onAllReviews = function (event) {
   event.preventDefault()
   api.allReviews()
     .then(ui.onAllReviewsSuccess)
     .catch(ui.onAllReviewsFailure)
 }
-
+// handler to close all reviews
 const onCloseReviews = function (event) {
   event.preventDefault()
   console.log('close review event is ', event)
   $('#review').html('')
 }
-
+// handler submit a review by a user
 const onSubmitReview = function (event) {
   event.preventDefault()
 
@@ -25,9 +25,17 @@ const onSubmitReview = function (event) {
     .then(ui.onSubmitReviewSuccess)
     .catch(ui.onSubmitReviewFailure)
 }
+// handler to show only reviews submitted by the user
+const onMyReviews = function (event) {
+  event.preventDefault()
+  api.allReviews()
+    .then(ui.onMyReviewsSuccess)
+    .catch(ui.onMyReviewFailure)
+}
 
 module.exports = {
   onAllReviews,
   onCloseReviews,
-  onSubmitReview
+  onSubmitReview,
+  onMyReviews
 }

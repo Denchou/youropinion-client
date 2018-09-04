@@ -42,6 +42,7 @@ const onSignOutSuccess = function () {
   $('#change-password').hide()
   $('.collapse').collapse('hide')
   $('.pw').hide()
+  $('#submitModal').hide()
 }
 const onSignOutFailure = function () {
   $('#message').html('Something went wrong, please check your internet connection.')
@@ -58,14 +59,6 @@ const onChangePasswordFailure = function () {
   $('#message').html('We were unable to update your password. Please ensure your old password is correct.')
 }
 
-const onSubmitReviewSuccess = function (response) {
-  console.log('SUCCESS! Review ID is ', response.id)
-}
-
-const onSubmitReviewFailure = function (response) {
-  console.log('FAILURE! Review data is ', response)
-}
-
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -74,7 +67,5 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onChangePasswordSuccess,
-  onChangePasswordFailure,
-  onSubmitReviewSuccess,
-  onSubmitReviewFailure
+  onChangePasswordFailure
 }

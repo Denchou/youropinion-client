@@ -24,7 +24,7 @@ const onSubmitReviewSuccess = function (response) {
 }
 
 const onSubmitReviewFailure = function (response) {
-  console.log('FAILURE! Review data is ', response)
+  $('#message').html('There was an error in submitting your review.')
 }
 
 const onMyReviewsSuccess = function (data) {
@@ -32,19 +32,35 @@ const onMyReviewsSuccess = function (data) {
   // const showMyReviewsHtml = myReviewsListing({reviews: data.reviews})
   // $('#review').append(showMyReviewsHtml)
   $('#review').html('')
+  console.log(data, ' is data')
   const newData = data.reviews.filter(x => x.user.id === store.user.id)
   const showMyReviewsHtml = myReviewsListing({ reviews: newData })
   $('#review').append(showMyReviewsHtml)
+  console.log(newData, ' is newdata')
+  console.log(showMyReviewsHtml)
+  // store.MyData = newData
 }
 
 const onMyReviewFailure = function (response) {
-  console.log('FAILED')
+  $('#message').html('There was an error in retrieving your reviews.')
 }
+
+const onDeleteReviewSuccess = function () {
+  $('#message').html('You have successfully removed your opinion from the internet. Good job!')
+  $('#review').html('')
+}
+
+const onDeleteReviewFailure = function (response) {
+  $('#message').html('There was an error in deleting your review')
+}
+
 module.exports = {
   onAllReviewsSuccess,
   onAllReviewsFailure,
   onSubmitReviewSuccess,
   onSubmitReviewFailure,
   onMyReviewsSuccess,
-  onMyReviewFailure
+  onMyReviewFailure,
+  onDeleteReviewSuccess,
+  onDeleteReviewFailure
 }

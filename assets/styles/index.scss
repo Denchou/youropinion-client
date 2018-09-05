@@ -4,7 +4,13 @@
 //   font-family: 'FontAwesome';
 //   src: url('public/fa-regular-400.ttf') format('truetype');
 // }
-
+body {
+  max-width: 860px;
+  margin: auto;
+}
+ul {
+  list-style-type: none;
+}
 fieldset {
   padding: 10px;
 }

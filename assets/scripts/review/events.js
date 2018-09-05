@@ -32,10 +32,19 @@ const onMyReviews = function (event) {
     .then(ui.onMyReviewsSuccess)
     .catch(ui.onMyReviewFailure)
 }
+// handler to delete a user's review
+const onDeleteReview = function (event) {
+  event.preventDefault()
+  const reviewId = $(event.target).closest('section').data('id')
+  api.deleteReview(reviewId)
+    .then(ui.onDeleteReviewSuccess)
+    .catch(ui.onDeleteReviewFailure)
+}
 
 module.exports = {
   onAllReviews,
   onCloseReviews,
   onSubmitReview,
-  onMyReviews
+  onMyReviews,
+  onDeleteReview
 }

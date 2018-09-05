@@ -43,6 +43,7 @@ $(() => {
   $('#change-password').on('submit', authHandler.onChangePassword)
   $('#all-reviews').on('submit', reviewHandler.onAllReviews)
   $('#review').on('click', '.close', reviewHandler.onCloseReviews)
+  $('#review').on('click', '.delete', reviewHandler.onDeleteReview)
   $('#reviewForm').on('submit', reviewHandler.onSubmitReview)
   $('#myReviews').on('click', reviewHandler.onMyReviews)
 })

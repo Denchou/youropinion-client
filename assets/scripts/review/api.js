@@ -26,7 +26,18 @@ const submitReview = function (data) {
     }
   })
 }
+// handles api call to delete a review made by a user
+const deleteReview = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/reviews/' + id,
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   allReviews,
-  submitReview
+  submitReview,
+  deleteReview
 }

@@ -37,7 +37,7 @@ const onSignInFailure = function () {
 }
 
 const onSignOutSuccess = function () {
-  $('#message').html('Thank you for playing! Goodbye!')
+  $('#message').html('Thank you for your opinions! So long!')
   $('.sign').show()
   $('#sign-out').hide()
   $('#change-password').hide()
@@ -45,6 +45,7 @@ const onSignOutSuccess = function () {
   $('.pw').hide()
   $('#submitModal').hide()
   $('#myReviews').hide()
+  $('#review').html('')
 }
 const onSignOutFailure = function () {
   $('#message').html('Something went wrong, please check your internet connection.')

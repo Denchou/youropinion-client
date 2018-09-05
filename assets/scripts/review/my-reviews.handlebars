@@ -3,16 +3,17 @@
 </button>
 {{#each reviews as |review|}}
 
-  <div>
-    <section data-id="{{review.id}}">
-    <h1> <small>Topic: {{review.topic}}</small></h1>
-    <ul>
-      <li>{{review.article}}</li>
-      <li>Rating: {{review.star}}</li>
-      <li>By: {{review.user.id}}</li>
-    </ul>
+
+    <section data-id="{{review.id}}" class="container-fluid">
+    <h1> <small>{{review.topic}}</small></h1>
+
+      <div>{{review.article}}</div>
+      <div>Rating: {{review.star}}</div>
+      <div>By: {{review.user.id}}</div>
+      <button type="button" class="delete class='btn btn btn-primary">Delete</button>
+      <button type="button" class="update class='btn btn btn-primary">Update</button>
   </section>
-  </div>
+
 
 
 {{/each}}

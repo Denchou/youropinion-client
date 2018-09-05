@@ -28,9 +28,9 @@ const onSubmitReview = function (event) {
 // handler to show only reviews submitted by the user
 const onMyReviews = function (event) {
   event.preventDefault()
-  api.allReviews()
+  api.myReviews()
     .then(ui.onMyReviewsSuccess)
-    .catch(ui.onMyReviewFailure)
+    .catch(ui.onMyReviewsFailure)
 }
 // handler to delete a user's review
 const onDeleteReview = function (event) {

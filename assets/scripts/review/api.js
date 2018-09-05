@@ -36,8 +36,19 @@ const deleteReview = function (id) {
     }
   })
 }
+
+const myReviews = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/reviews/?user_id=' + store.user.id,
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   allReviews,
   submitReview,
-  deleteReview
+  deleteReview,
+  myReviews
 }

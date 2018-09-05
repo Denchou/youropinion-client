@@ -1,6 +1,7 @@
 <button type="button" class="close" aria-label="Close">
   <section aria-hidden="true">&times;</section>
 </button>
+{{#if reviews.length}}
 {{#each reviews as |review|}}
 
 
@@ -13,7 +14,7 @@
       <button type="button" class="delete class='btn btn btn-primary">Delete</button>
       <button type="button" class="update class='btn btn btn-primary">Update</button>
   </section>
-
-
-
 {{/each}}
+{{else}}
+<p>You have no reviews!</p>
+{{/if}}

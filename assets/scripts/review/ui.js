@@ -1,5 +1,6 @@
 
 const store = require('../store')
+const api = require('./api')
 const allReviewsListing = require('./all-reviews.handlebars')
 const myReviewsListing = require('./my-reviews.handlebars')
 
@@ -28,26 +29,22 @@ const onSubmitReviewFailure = function (response) {
 }
 
 const onMyReviewsSuccess = function (data) {
-  // $('#review').html('')
-  // const showMyReviewsHtml = myReviewsListing({reviews: data.reviews})
-  // $('#review').append(showMyReviewsHtml)
+  $('#message').html('Your reviews...')
   $('#review').html('')
-  console.log(data, ' is data')
-  const newData = data.reviews.filter(x => x.user.id === store.user.id)
-  const showMyReviewsHtml = myReviewsListing({ reviews: newData })
+  const showMyReviewsHtml = myReviewsListing({reviews: data.reviews})
   $('#review').append(showMyReviewsHtml)
-  console.log(newData, ' is newdata')
-  console.log(showMyReviewsHtml)
-  // store.MyData = newData
 }
 
-const onMyReviewFailure = function (response) {
+const onMyReviewsFailure = function (response) {
   $('#message').html('There was an error in retrieving your reviews.')
 }
 
 const onDeleteReviewSuccess = function () {
   $('#message').html('You have successfully removed your opinion from the internet. Good job!')
   $('#review').html('')
+  api.myReviews()
+    .then(onMyReviewsSuccess)
+    .catch(onMyReviewsFailure)
 }
 
 const onDeleteReviewFailure = function (response) {
@@ -60,7 +57,7 @@ module.exports = {
   onSubmitReviewSuccess,
   onSubmitReviewFailure,
   onMyReviewsSuccess,
-  onMyReviewFailure,
+  onMyReviewsFailure,
   onDeleteReviewSuccess,
   onDeleteReviewFailure
 }

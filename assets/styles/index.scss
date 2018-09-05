@@ -57,7 +57,7 @@ label.star {
 }
 
 input.star:checked ~ label.star:before {
-  content: '❤️';
+  content: '★';
   color: #FD4;
   transition: all .25s;
 }
@@ -69,9 +69,30 @@ input.star-5:checked ~ label.star:before {
 
 input.star-1:checked ~ label.star:before { color: #F62; }
 
-label.star:hover { transform: scale(1.3); }
+label.star:hover { transform: rotateZ(90deg) scale(1.5); }
 
 label.star:before {
-  content: '♡';
+  content: '☆';
   //font-family: FontAwesome;
+}
+.star-review {
+  font-size: 32px;
+  color: #FD4;
+}
+.review-1:before {
+  content:'★☆☆☆☆';
+}
+.review-2:before {
+  content:'★★☆☆☆';
+}
+.review-3:before {
+  content:'★★★☆☆';
+}
+.review-4:before {
+  content:'★★★★☆';
+}
+.review-5:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+  content:'★★★★★';
 }

@@ -9,7 +9,7 @@
     <h2>{{review.topic}}</h2>
 
       <div>{{review.article}}</div>
-      <div>Rating: {{review.star}}</div>
+      <div>Rating: <span class="review-{{review.star}}"></span></div>
       <div>By: {{review.user.id}}</div>
       <div>Review ID: {{review.id}}</div>
       <button type="button" class="delete class='btn btn btn-primary">Delete</button>

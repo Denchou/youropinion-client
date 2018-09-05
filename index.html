@@ -13,9 +13,6 @@
     </head>
     <body>
       <h1>Well, that's just like, your opinion, man</h1>
-      <button id='submitModal' type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">
-  Submit a review
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
@@ -65,60 +62,59 @@
     </div>
   </div>
 </div>
-      <button class="btn btn-primary sign" type="button" data-toggle="collapse" data-target="#collapseSignUp" aria-expanded="false" aria-controls="collapseSignUp">
-  Sign Up</button>
+<!-- Modal ends here -->
 
-  <button class="btn btn-primary sign" type="button" data-toggle="collapse" data-target="#collapseSignIn" aria-expanded="false" aria-controls="collapseSignIn">
+<nav class="container-flex">
+  <div class="row">
+      <button class="btn btn-primary sign col-xs justify-content-end" type="button" data-toggle="collapse" data-target="#collapseSignUp" aria-expanded="false" aria-controls="collapseSignUp">Create Account</button>
+
+  <button class="btn btn-primary sign col-xs justify-content-end" type="button" data-toggle="collapse" data-target="#collapseSignIn" aria-expanded="false" aria-controls="collapseSignIn">
   Sign In</button>
-  <div class="collapse landpage" id="collapseSignIn">
-  <div class="">
+  <div class="collapse landpage col-12" id="collapseSignIn">
         <form id='sign-in'>
 
           <input type='email' name ="credentials[email]" placeholder="Email">
           <input type='password' name ="credentials[password]" placeholder="Password">
-          <button type="submit" class='btn btn-primary'>Submit</button>
+          <button type="submit" class='btn btn-primary'>Sign In</button>
 
       </form>
     </div>
-    </div>
-    <div class="collapse landpage" id="collapseSignUp">
-    <div class="">
+    <div class="collapse landpage col-12" id="collapseSignUp">
+
       <form id='sign-up'>
                 <input type='email' name ="credentials[email]" placeholder="Email">
                 <input type='password' name ="credentials[password]" placeholder="Password">
                 <input type='password' name ='credentials[password_confirmation]' placeholder="Confirm Password">
-                <button type="submit" class='btn btn-primary'>Submit</button>
+                <button type="submit" class='btn btn-primary'>Create Account</button>
             </form>
-    </div>
+
     </div>
       <form id='sign-out'>
-      <fieldset>
-        <button type="submit" class='btn btn btn-primary'> Sign Out</button>
-      </fieldset>
+        <button type="submit" class='btn btn btn-primary'>Sign Out</button>
     </form>
     <button class="btn btn-primary pw" type="button" data-toggle="collapse" data-target="#collapsePW" aria-expanded="false" aria-controls="collapsePW">
     Change Password</button>
-    <div class="collapse" id="collapsePW">
-      <div>
+    <div class="collapse col-12" id="collapsePW">
     <form id='change-password'>
       <input type='password' name ="passwords[old]" placeholder="Old Password">
       <input type='password' name ='passwords[new]' placeholder="New Password">
-      <button type="submit" class='btn btn btn-primary'>Submit</button>
+      <button type="submit" class='btn btn btn-primary'>Change Password</button>
   </form>
   </div>
   </div>
+</nav>
+<div class="container-flex review">
   <form id='all-reviews'>
-  <fieldset>
-    <button type="submit" class='btn btn btn-primary'>Read all reviews</button>
-  </fieldset>
-</form>
-<form id='myReviews'>
-<fieldset>
-  <button type="submit" class='btn btn btn-primary'>Read my reviews</button>
-</fieldset>
-</form>
-
- <section id="message"></section>
- <section id="review"></section>
+    <button type="submit" class='btn btn-outline-primary'>Read all reviews</button>
+  </form>
+  <form id='myReviews'>
+  <button type="submit" class='btn btn-outline-primary'>Read my reviews</button>
+  </form>
+  <button id='submitModal' type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#reviewModal">
+    Submit a review
+  </button>
+</div>
+ <div id="message"></div>
+ <div id="review" class="container-flex"></div>
     </body>
 </html>

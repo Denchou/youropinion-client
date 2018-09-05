@@ -4,15 +4,26 @@
 //   font-family: 'FontAwesome';
 //   src: url('public/fa-regular-400.ttf') format('truetype');
 // }
-body {
-  max-width: 860px;
-  margin: auto;
+nav {
+  background-color: #007bff;
+  padding: 0px;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.review {
+  display: flex;
+  justify-content: center;
+}
+
+section {
+  border: solid blue 1px;
+  width:inherit;
 }
 ul {
   list-style-type: none;
-}
-fieldset {
-  padding: 10px;
 }
 
 .red {

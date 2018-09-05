@@ -13,7 +13,6 @@ const onAllReviews = function (event) {
 // handler to close all reviews
 const onCloseReviews = function (event) {
   event.preventDefault()
-  console.log('close review event is ', event)
   $('#review').html('')
   $('#message').html('What would you like to do?')
 }
@@ -27,9 +26,7 @@ const onSubmitReview = function (event) {
     api.submitReview(data)
       .then(ui.onSubmitReviewSuccess)
       .catch(ui.onSubmitReviewFailure)
-  } else {
-    console.log('Not a new review')
-  }
+  } else { }
 }
 // handler to show only reviews submitted by the user
 const onMyReviews = function (event) {
@@ -80,9 +77,7 @@ const onSendUpdate = function (event) {
     api.updateReview(data)
       .then(ui.onUpdateReviewSuccess)
       .catch(ui.onUpdateReviewFailure)
-  } else {
-    console.log('Not an updated review')
-  }
+  } else { }
 }
 
 module.exports = {

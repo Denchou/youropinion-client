@@ -20,12 +20,16 @@ const onCloseReviews = function (event) {
 // handler submit a review by a user
 const onSubmitReview = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  data.review = $('#reviewInput').val()
+  if (!store.update) {
+    const data = getFormFields(event.target)
+    data.review = $('#reviewInput').val()
 
-  api.submitReview(data)
-    .then(ui.onSubmitReviewSuccess)
-    .catch(ui.onSubmitReviewFailure)
+    api.submitReview(data)
+      .then(ui.onSubmitReviewSuccess)
+      .catch(ui.onSubmitReviewFailure)
+  } else {
+    console.log('Not a new review')
+  }
 }
 // handler to show only reviews submitted by the user
 const onMyReviews = function (event) {
@@ -44,13 +48,11 @@ const onDeleteReview = function (event) {
 }
 const onUpdateReview = function (event) {
   event.preventDefault()
+  store.update = true
   $('#submitForm').hide()
   $('#updateForm').show()
   const reviewId = $(event.target).closest('section').data('id')
-  console.log(store.reviews, ' Store Review')
-  console.log(reviewId, ' is review ID')
   const arr = store.reviews.find(x => x.id === reviewId)
-  console.log(arr, ' is arr')
   $('#topic').val(arr.topic)
   $('#reviewInput').val(arr.article)
   $('#reviewModal').modal('show')
@@ -72,12 +74,15 @@ const modalReset = function (event) {
 
 const onSendUpdate = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  data.review = $('#reviewInput').val()
-  console.log('SendUpdate data is ', data)
-  api.updateReview(data)
-    .then(ui.onUpdateReviewSuccess)
-    .catch(ui.onUpdateReviewFailure)
+  if (store.update) {
+    const data = getFormFields(event.target)
+    data.review = $('#reviewInput').val()
+    api.updateReview(data)
+      .then(ui.onUpdateReviewSuccess)
+      .catch(ui.onUpdateReviewFailure)
+  } else {
+    console.log('Not an updated review')
+  }
 }
 
 module.exports = {

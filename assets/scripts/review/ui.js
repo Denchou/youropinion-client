@@ -59,10 +59,12 @@ const onUpdateReviewSuccess = function (response) {
   $('#star-1').prop('checked', true)
   $('#reviewModal').modal('toggle')
   $('#message').html('You have successfully updated your review!')
+  store.update = false
 }
 
 const onUpdateReviewFailure = function (response) {
   $('#message').html('There was an error in updating your review.')
+  store.update = false
 }
 
 module.exports = {

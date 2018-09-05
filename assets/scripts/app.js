@@ -2,6 +2,7 @@
 
 const authHandler = require('./auth/events.js')
 const reviewHandler = require('./review/events.js')
+const store = require('./store')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -30,7 +31,7 @@ $(() => {
   // $('#reviewModal').on('hidden.bs.modal', function (e) {
   //   $('#topic').html('')
   // })
-
+  store.update = false
   // listener for sign up, sign in and review buttons
   $('#sign-out').hide()
   $('#change-password').hide()

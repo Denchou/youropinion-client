@@ -3,7 +3,7 @@ const store = require('../store')
 
 const onSignUpSuccess = function () {
   $('#sign-up').trigger('reset')
-  $('#message').html('Congratulations! Your account has been successfully created. Please sign in to opiniate on things!')
+  $('#message').html('Account successfully created! Please sign in to opiniate on things!')
   $('.collapse').collapse('hide')
   // $('#sign-up').hide()
   // $('#sign-in').hide()
@@ -19,7 +19,7 @@ const onSignUpFailure = function () {
 
 const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
-  $('#message').html('WELCOME! You can now submit a review and edit or delete your reviews!')
+  $('#message').html('You have successfully logged in! Got something to say?')
   $('.sign').hide()
   $('#sign-out').show()
   $('#change-password').show()

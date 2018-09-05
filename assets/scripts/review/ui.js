@@ -33,6 +33,7 @@ const onMyReviewsSuccess = function (data) {
   $('#review').html('')
   const showMyReviewsHtml = myReviewsListing({reviews: data.reviews})
   $('#review').append(showMyReviewsHtml)
+  store.reviews = data.reviews
 }
 
 const onMyReviewsFailure = function (response) {

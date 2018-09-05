@@ -1,6 +1,8 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
+
 // handler for reading all reviews submitted by all users
 const onAllReviews = function (event) {
   event.preventDefault()
@@ -17,7 +19,6 @@ const onCloseReviews = function (event) {
 // handler submit a review by a user
 const onSubmitReview = function (event) {
   event.preventDefault()
-
   const data = getFormFields(event.target)
   data.review = $('#reviewInput').val()
 
@@ -40,11 +41,37 @@ const onDeleteReview = function (event) {
     .then(ui.onDeleteReviewSuccess)
     .catch(ui.onDeleteReviewFailure)
 }
+const onUpdateReview = function (event) {
+  event.preventDefault()
+  $('#submitForm').hide()
+  $('#updateForm').show()
+  const reviewId = $(event.target).closest('section').data('id')
+  console.log(store.reviews, ' Store Review')
+  console.log(reviewId, ' is review ID')
+  const arr = store.reviews.find(x => x.id === reviewId)
+  console.log(arr, ' is arr')
+  $('#reviewModal').modal('show')
+  // api.updateReview(reviewId)
+  //   .then(ui.onDeleteReviewSuccess)
+  //   .catch(ui.onDeleteReviewFailure)
+}
+// Resets the review submission form everytime Submit a Review button is clicked
+const modalReset = function (event) {
+  event.preventDefault()
+  $('#submitForm').show()
+  $('#updateForm').hide()
+  $('#reviewModalLabel').html('Submit your review')
+  $('#topic').val('')
+  $('#reviewInput').val('')
+  $('#star-1').prop('checked', true)
+}
 
 module.exports = {
   onAllReviews,
   onCloseReviews,
   onSubmitReview,
   onMyReviews,
-  onDeleteReview
+  onDeleteReview,
+  onUpdateReview,
+  modalReset
 }

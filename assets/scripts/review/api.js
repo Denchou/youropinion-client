@@ -46,9 +46,28 @@ const myReviews = function (id) {
     }
   })
 }
+// handles api call to update a user's review
+const updateReview = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/reviews/' + store.updateId,
+    method: 'PATCH',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data: {
+      'review': {
+        'topic': data.topic,
+        'article': data.review,
+        'user_id': store.user.id,
+        'star': data.star
+      }
+    }
+  })
+}
 module.exports = {
   allReviews,
   submitReview,
   deleteReview,
-  myReviews
+  myReviews,
+  updateReview
 }

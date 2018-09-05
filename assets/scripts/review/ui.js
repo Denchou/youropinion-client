@@ -52,6 +52,19 @@ const onDeleteReviewFailure = function (response) {
   $('#message').html('There was an error in deleting your review')
 }
 
+const onUpdateReviewSuccess = function (response) {
+  const data = response.review
+  $('#topic').val('')
+  $('#reviewInput').val('')
+  $('#star-1').prop('checked', true)
+  $('#reviewModal').modal('toggle')
+  $('#message').html('You have successfully updated your review!')
+}
+
+const onUpdateReviewFailure = function (response) {
+  $('#message').html('There was an error in updating your review.')
+}
+
 module.exports = {
   onAllReviewsSuccess,
   onAllReviewsFailure,
@@ -60,5 +73,7 @@ module.exports = {
   onMyReviewsSuccess,
   onMyReviewsFailure,
   onDeleteReviewSuccess,
-  onDeleteReviewFailure
+  onDeleteReviewFailure,
+  onUpdateReviewSuccess,
+  onUpdateReviewFailure
 }

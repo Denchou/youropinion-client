@@ -15,6 +15,7 @@ const onCloseReviews = function (event) {
   event.preventDefault()
   console.log('close review event is ', event)
   $('#review').html('')
+  $('#message').html('What would you like to do?')
 }
 // handler submit a review by a user
 const onSubmitReview = function (event) {
@@ -50,10 +51,13 @@ const onUpdateReview = function (event) {
   console.log(reviewId, ' is review ID')
   const arr = store.reviews.find(x => x.id === reviewId)
   console.log(arr, ' is arr')
+  $('#topic').val(arr.topic)
+  $('#reviewInput').val(arr.article)
   $('#reviewModal').modal('show')
-  // api.updateReview(reviewId)
-  //   .then(ui.onDeleteReviewSuccess)
-  //   .catch(ui.onDeleteReviewFailure)
+  $('reviewModalLabel').html('Update your review')
+  $(`#star-${arr.star}`).prop('checked', true)
+  $('#reviewForm').on('submit', onSendUpdate)
+  store.updateId = reviewId
 }
 // Resets the review submission form everytime Submit a Review button is clicked
 const modalReset = function (event) {
@@ -66,6 +70,16 @@ const modalReset = function (event) {
   $('#star-1').prop('checked', true)
 }
 
+const onSendUpdate = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  data.review = $('#reviewInput').val()
+  console.log('SendUpdate data is ', data)
+  api.updateReview(data)
+    .then(ui.onUpdateReviewSuccess)
+    .catch(ui.onUpdateReviewFailure)
+}
+
 module.exports = {
   onAllReviews,
   onCloseReviews,
@@ -73,5 +87,6 @@ module.exports = {
   onMyReviews,
   onDeleteReview,
   onUpdateReview,
-  modalReset
+  modalReset,
+  onSendUpdate
 }

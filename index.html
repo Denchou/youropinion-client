@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Your Opinion. On The Internet.</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1 class="col-lg-12">YEAH? WELL, THAT'S JUST LIKE, YOUR OPINION, MAN.</h1>
+<!-- Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewModalLabel">Submit an opinion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Start of Review Form -->
+            <div class="form-area">
+                <form id="reviewForm" role="form">
+                  <br style="clear:both">
+                      <h3>What's your opinion?</h3>
+            				<div class="form-group">
+        						<input type="text" class="form-control" id="topic" name="topic" placeholder="Requirements: One Word. Alphabets." input pattern="^[a-zA-Z]*" required>
+        					</div>
+                  <div class="stars" required>
+                      <input class="star star-5" id="star-5" type="radio" value=5 name="star"/>
+                      <label class="star star-5" for="star-5"></label>
+                      <input class="star star-4" id="star-4" type="radio" value=4 name="star"/>
+                      <label class="star star-4" for="star-4"></label>
+                      <input class="star star-3" id="star-3" type="radio" value=3 name="star"/>
+                      <label class="star star-3" for="star-3"></label>
+                      <input class="star star-2" id="star-2" type="radio" value=2 name="star"/>
+                      <label class="star star-2" for="star-2"></label>
+                      <input class="star star-1" id="star-1" type="radio" value=1 name="star" checked="checked"/>
+                      <label class="star star-1" for="star-1"></label>
+                  </div>
+                <div class="form-group">
+                    <textarea class="form-control" type="textarea" id="reviewInput" placeholder="Express your opinion here" maxlength="280" rows="7" required></textarea>
+                      <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+                </div>
+                 <button type="submit" id="submitForm" name="submit" data-target="#reviewInput" class="btn btn-primary pull-right">Submit Opinion</button>
+                 <button type="submit" id="updateForm" name="update" data-target="#reviewUpdate" class="btn btn-primary pull-right">Update Opinion</button>
+                </form>
+            </div>
+
+        <!-- End of Review Form -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal ends here -->
+
+<nav class="d-flex">
+  <div class="row">
+    <button id="ca" class="btn btn-primary sign col-xs justify-content-end" type="button" data-toggle="collapse" data-target="#collapseSignUp" aria-expanded="false" aria-controls="collapseSignUp">Create Account</button>
+    <button id="si" class="btn btn-primary sign col-xs justify-content-end" type="button" data-toggle="collapse" data-target="#collapseSignIn" aria-expanded="false" aria-controls="collapseSignIn">Sign In</button>
+    <div class="collapse landpage col-12 flex-row-reverse" id="collapseSignIn">
+        <form id='sign-in'>
+          <input type='email' name ="credentials[email]" placeholder="Email">
+          <input type='password' name ="credentials[password]" placeholder="Password">
+          <button type="submit" class='btn btn-success'>Go</button>
+      </form>
+    </div>
+    <div class="collapse landpage col-12" id="collapseSignUp">
+      <form id='sign-up'>
+       <input type='email' name ="credentials[email]" placeholder="Email">
+       <input type='password' name ="credentials[password]" placeholder="Password">
+       <input type='password' name ='credentials[password_confirmation]' placeholder="Confirm Password">
+       <button type="submit" class='btn btn-success'>Go</button>
+      </form>
+    </div>
+      <form id='sign-out'>
+        <button type="submit" class='btn btn btn-primary'>Sign Out</button>
+      </form>
+    <button class="btn btn-primary pw" type="button" data-toggle="collapse" data-target="#collapsePW" aria-expanded="false" aria-controls="collapsePW">
+    Change Password</button>
+    <div class="collapse col-12" id="collapsePW">
+      <form id='change-password'>
+        <input type='password' name ="passwords[old]" placeholder="Old Password">
+        <input type='password' name ='passwords[new]' placeholder="New Password">
+        <button type="submit" class='btn btn btn-primary'>Change Password</button>
+    </form>
+    </div>
+  </div>
+</nav>
+<div class="container-flex review">
+  <form id='all-reviews'>
+    <button type="submit" class='btn btn-outline-primary'>Check out all the opinions</button>
+  </form>
+  <form id='myReviews'>
+  <button type="submit" class='btn btn-outline-primary'>Review your opinions</button>
+  </form>
+  <button id='submitModal' type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#reviewModal">
+    Tell us what you REALLY think
+  </button>
+</div>
+ <div id="message" class="d-flex flex-wrap justify-content-center">WARNING: Opinions are like onions. There are many layers and some will make you cry.</div>
+ <div id="review" class="container-flex"></div>
+    </body>
+</html>

@@ -51,4 +51,6 @@ $(() => {
   $('#submitForm').show()
   $('#updateForm').hide()
   $('#submitModal').on('click', reviewHandler.modalReset)
+  $('#ca').on('click', () => $('#collapseSignIn').collapse('hide'))
+  $('#si').on('click', () => $('#collapseSignUp').collapse('hide'))
 })

@@ -3,7 +3,7 @@ const store = require('../store')
 
 const onSignUpSuccess = function () {
   $('#sign-up').trigger('reset')
-  $('#message').html('Congratulations! Your account has been successfully created. Please sign in to opiniate on things!')
+  $('#message').html('Account successfully created! Please sign in to opiniate on things!')
   $('.collapse').collapse('hide')
   // $('#sign-up').hide()
   // $('#sign-in').hide()
@@ -11,15 +11,12 @@ const onSignUpSuccess = function () {
 }
 const onSignUpFailure = function () {
   $('#sign-up').trigger('reset')
-  $('#message').html('Unable to create an account. Here are some troubleshooting tips:')
-  $('#message').append('<li>Check to make sure your password confirmation matches your password.</li>')
-  $('#message').append('<li>Ensure you are connected to the internet.</li>')
-  $('#message').append('<li>The account may already exist. If you remember the password, select Sign In instead.')
+  $('#message').html('Unable to create an account. Double check your info.')
 }
 
 const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
-  $('#message').html('WELCOME! You can now submit a review and edit or delete your reviews!')
+  $('#message').html('You have successfully logged in! Got something to say?')
   $('.sign').hide()
   $('#sign-out').show()
   $('#change-password').show()
@@ -31,9 +28,7 @@ const onSignInSuccess = function (response) {
 }
 const onSignInFailure = function () {
   $('#sign-in').trigger('reset')
-  $('#message').html('Unable to sign in. Here are some troubleshooting tips:')
-  $('#message').append('<li>Check your Username and Password.</li>')
-  $('#message').append('<li>Ensure you are connected to the internet.</li>')
+  $('#message').html('Unable to sign in. Double check your info.')
 }
 
 const onSignOutSuccess = function () {

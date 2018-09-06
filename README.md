@@ -6,7 +6,7 @@ their opinions and then delete or update them.
 
 Link to the client: https://denchou.github.io/youropinion-client/
 Link to the API: https://whispering-caverns-60041.herokuapp.com/
-Link to the Wireframe: [Imgur](https://i.imgur.com/EfQBj4F.jpg)
+Link to the Wireframe: [Imgur](https://i.imgur.com/ZeZDE7M.jpg)
 
 Link to API repo: https://github.com/Denchou/youropinion-api
 

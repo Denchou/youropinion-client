@@ -1,19 +1,27 @@
-<button type="button" class="close" aria-label="Close">
-  <section aria-hidden="true">&times;</section>
-</button>
 {{#if reviews.length}}
 {{#each reviews as |review|}}
 
 
     <section data-id="{{review.id}}" class="container-fluid">
-    <h2 class="topic">{{review.topic}}</h2>
+      <div class="card text-center text-white bg-info mb-3">
+          <div class="card-header">
+            <button type="button" class="close" aria-label="Close">
+              <div aria-hidden="true">&times;</div>
+            </button>
+            <h2 class="topic">{{review.topic}}</h2>
+          </div>
 
-      <div>{{review.article}}</div>
+      <div class="card-body">
+        <p class="card-text">{{review.article}}</p>
+      </div>
       <div>Rating: <span class="star-review review-{{review.star}}"></span></div>
-      <div>By: Opinionator #{{review.user.id}}. Pssst, this is you!</div>
-      <div>In the event your opinion is used as evidence in a future court case, this opinion ID is: {{review.id}}</div>
-      <button type="button" class="delete class='btn btn btn-primary">Delete</button>
-      <button type="button" class="update class='btn btn btn-primary">Update</button>
+      <div>By: Opinionator #{{review.user.id}}. You!</div>
+      <div>Opinion ID:{{review.id}}</div>
+      <div class="card-footer">
+        <button type="button" class="delete class='btn btn-light">Delete</button>
+        <button type="button" class="update class='btn btn-light">Update</button>
+      </div>
+    </div>
   </section>
 {{/each}}
 {{else}}

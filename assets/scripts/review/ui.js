@@ -59,7 +59,7 @@ const onUpdateReviewSuccess = function (response) {
   $('#reviewInput').val('')
   $('#star-1').prop('checked', true)
   $('#reviewModal').modal('toggle')
-  $('#message').html('Bravo! You changed your opinion on something! What next? World Peace?!')
+  $('#message').html('You changed your opinion on something. Very commendable.')
   store.update = false
 }
 

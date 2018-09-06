@@ -1,16 +1,20 @@
-<button type="button" class="close" aria-label="Close">
-  <section aria-hidden="true">&times;</section>
-</button>
 {{#each reviews as |review|}}
 
 
-    <section data-id="{{review.id}}" class="container-fluid">
-    <h2>{{review.topic}}</h2>
-
-      <div>{{review.article}}</div>
-      <div>Rating: <span class="star-review review-{{review.star}}"></span></div>
-      <div>By: Opinionator #{{review.user.id}}</div>
-
+    <section data-id="{{review.id}}" class="container-flex">
+      <div class="card text-center text-white bg-info mb-3">
+        <div class="card-header">
+          <button type="button" class="close" aria-label="Close">
+            <div aria-hidden="true">&times;</div>
+          </button>
+          <h2>{{review.topic}}</h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{review.article}}</p>
+        <div>Rating: <span class="star-review review-{{review.star}}"></span></div>
+        <div>By: Opinionator #{{review.user.id}}</div>
+      </div>
+      </div>
   </section>
 
 

@@ -13,8 +13,9 @@ const onAllReviews = function (event) {
 // handler to close all reviews
 const onCloseReviews = function (event) {
   event.preventDefault()
-  $('#review').html('')
-  $('#message').html('What would you like to do?')
+  //$('#review').html('')
+  $(event.target).closest('section').html('')
+  $('#message').html('You merely closed that opinion, but it is still out there.')
 }
 // handler submit a review by a user
 const onSubmitReview = function (event) {
@@ -53,7 +54,7 @@ const onUpdateReview = function (event) {
   $('#topic').val(arr.topic)
   $('#reviewInput').val(arr.article)
   $('#reviewModal').modal('show')
-  $('reviewModalLabel').html('Update your review')
+  $('#reviewModalLabel').html('Change your opinion')
   $(`#star-${arr.star}`).prop('checked', true)
   $('#reviewForm').on('submit', onSendUpdate)
   store.updateId = reviewId
@@ -63,7 +64,7 @@ const modalReset = function (event) {
   event.preventDefault()
   $('#submitForm').show()
   $('#updateForm').hide()
-  $('#reviewModalLabel').html('Submit your review')
+  $('#reviewModalLabel').html('Submit your opinion')
   $('#topic').val('')
   $('#reviewInput').val('')
   $('#star-1').prop('checked', true)

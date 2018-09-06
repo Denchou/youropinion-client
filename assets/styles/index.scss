@@ -21,16 +21,14 @@ h1 {
   justify-content: center;
   text-shadow: -1px 0 #007bff, 0 1px #007bff, 1px 0 #007bff, 0 -1px #007bff;
 }
-
+section {
+  padding: 5px;
+}
 .review {
   display: flex;
   justify-content: center;
 }
 
-section {
-  border: solid blue 1px;
-  width:inherit;
-}
 ul {
   list-style-type: none;
 }

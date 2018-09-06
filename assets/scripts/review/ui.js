@@ -8,6 +8,7 @@ const myReviewsListing = require('./my-reviews.handlebars')
 const onAllReviewsSuccess = function (data) {
   $('#message').html('Here is a list of all the opinions on the internet!')
   $('#review').html('')
+  data.reviews.sort(function (a, b) { return b.id - a.id })
   const showReviewsHtml = allReviewsListing({ reviews: data.reviews })
   $('#review').append(showReviewsHtml)
 }
@@ -23,6 +24,9 @@ const onSubmitReviewSuccess = function (response) {
   $('#star-1').prop('checked', true)
   $('#reviewModal').modal('toggle')
   $('#message').html('You have successfully submitted your opinion!')
+  api.myReviews()
+    .then(onMyReviewsSuccess)
+    .catch(onMyReviewsFailure)
 }
 // ui response for unsuccessful create
 const onSubmitReviewFailure = function (response) {
@@ -30,8 +34,9 @@ const onSubmitReviewFailure = function (response) {
 }
 // ui response for successful user_id query index call
 const onMyReviewsSuccess = function (data) {
-  $('#message').html('Are you happy with your opinions?')
+//  $('#message').html('Are you happy with your opinions?')
   $('#review').html('')
+  data.reviews.sort(function (a, b) { return b.id - a.id })
   const showMyReviewsHtml = myReviewsListing({reviews: data.reviews})
   $('#review').append(showMyReviewsHtml)
   store.reviews = data.reviews
@@ -61,6 +66,9 @@ const onUpdateReviewSuccess = function (response) {
   $('#reviewModal').modal('toggle')
   $('#message').html('You changed your opinion on something. Very commendable.')
   store.update = false
+  api.myReviews()
+    .then(onMyReviewsSuccess)
+    .catch(onMyReviewsFailure)
 }
 
 const onUpdateReviewFailure = function (response) {
